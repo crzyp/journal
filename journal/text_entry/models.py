@@ -4,7 +4,7 @@ from django.db import models
 # title refrences the entry and has a publishing date associated with it
 class Journal(models.Model):
 	title_text = models.CharField(max_length=200)
-	pub_date = models.DateTimeField('date published')
+	pub_date = models.DateTimeField(auto_now_add=True)
 
 # individual entries to track 
 # title links it to the title in journal column
