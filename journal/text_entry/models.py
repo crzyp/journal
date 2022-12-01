@@ -13,4 +13,4 @@ class Journal(models.Model):
 class Entry(models.Model):
 	title = models.ForeignKey(Journal, on_delete=models.CASCADE)
 	entry_text = models.TextField()
-	image = models.ImageField(upload_to='/uploads/')
+	image = models.ImageField(upload_to='./uploads/')
