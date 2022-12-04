@@ -1,0 +1,65 @@
+import random     #included in standard lib
+
+#function description:
+#this function takes no parameters. 
+#It returns a list of 5 strings/prompts that are randomly chosen from our list of potential prompts.
+#Expected use: function should be called when displaying the home page to decide the label of the buttons
+#              under the alternative prompts section. Each element of the returned list should be the label
+#              for one button and if the button is pressed it should open an entry box with that element as the first line
+def std_prompts_funct():
+
+  #declare the five prompt value variables, the funct would work without this section as well
+  prompt1 = "If you can see this, the random prompt function is broken"
+  prompt2 = "If you can see this, the random prompt function is broken"
+  prompt3 = "If you can see this, the random prompt function is broken"
+  prompt4 = "If you can see this, the random prompt function is broken"
+  prompt5 = "If you can see this, the random prompt function is broken"
+
+  #initialize a string list with alllllllllllll of our different standard prompts
+  standardPromptsList = ["What\’s on your mind?"]
+  standardPromptsList.append("What’s something creative that you have made that you can be proud of?")
+  standardPromptsList.append("What’s something that made your day better today?")
+  standardPromptsList.append("What’s a long term goal you have for yourself? What can you do this week to bring yourself closer to that goal?")
+  standardPromptsList.append("What’s one part of your life that you couldn’t imagine being without?")
+  standardPromptsList.append("How did you get to where you are today?")
+  standardPromptsList.append("What is your favorite part about being you?")
+  standardPromptsList.append("What was the hardest life lesson you had to learn?")
+  standardPromptsList.append("What is your first memory?")
+  standardPromptsList.append("Describe yourself in only ten words. Explain why these ten were the most fitting.")
+  standardPromptsList.append("What is something you would regret not doing?")
+  standardPromptsList.append("What scares you?")
+  standardPromptsList.append("If you could redo the last year, what would you do differently? What would you keep the same?")
+  standardPromptsList.append("What are you doing today that will benefit you tomorrow?")
+  standardPromptsList.append("What was the best day of your life so far? What made it special?")
+  standardPromptsList.append("What are you most proud of?")
+  standardPromptsList.append("If your future self sent you a message of appreciation for what you are working on now, what would it say?")
+  standardPromptsList.append("Name one thing that brought you joy today.")
+  standardPromptsList.append("What's something you could do to spread joy to the people around you?")
+  standardPromptsList.append("List five people/things that make your life better.")
+  standardPromptsList.append("When you're having a bad day, what can you do to turn it around?")
+  standardPromptsList.append("Who has made you who you are today?")
+  standardPromptsList.append("Write a message to someone you have lost. What do you wish you could tell them?")
+  standardPromptsList.append("How can I deepen the meaningful bonds in my life?")
+  standardPromptsList.append("What do you value most in others?")
+  standardPromptsList.append("What do you bring to your relationships?")
+  standardPromptsList.append("What makes you feel strong and in control?")
+  standardPromptsList.append("Have you been getting enough sleep? How are your energy levels?")
+  standardPromptsList.append("Describe a place that makes you happy.")
+  standardPromptsList.append("What could have made today even better?")
+  standardPromptsList.append("What made today great?")
+
+  #randomly pick our prompts
+  value1 = random.randint(0,30)
+  prompt1 = standardPromptsList[value1]
+  value1 = random.randint(0,30)
+  prompt2 = standardPromptsList[value1]
+  value1 = random.randint(0,30)
+  prompt3 = standardPromptsList[value1]
+  value1 = random.randint(0,30)
+  prompt4 = standardPromptsList[value1]
+  value1 = random.randint(0,30)
+  prompt5 = standardPromptsList[value1]
+
+  #return our prompts
+  returningList = [prompt1, prompt2, prompt3, prompt4, prompt5]
+  return returningList
