@@ -1,0 +1,20 @@
+import pyodbc #you must "pip install pyodbc" to install pyodbc package
+
+#This function takes two int values as a parameter
+#This funct does not return anything
+#Expected use: The value passed to this function should be the inputted value from the mood slider bar on the
+#              app's welcome page. This funct will store this value in the database with other inputted mood values
+#              from the same day, to be averaged and outputted in the mood tracker graph
+def mood_recorder_funct(mood, today)
+
+  #connect to the server with server name: SERVERNAME and database name: DATABASENAME
+  conn = pyodbc.connect("Driver={SQL Server};" "Server=SERVERNAME;" "Database=DATABASENAME;" "Trusted_Connection=yes;")
+  cursor = conn.cursor()
+
+  #insert today's value into the database's table, table has columns named date and moodValue
+  cursor.execute('''
+                INSERT INTO product (date, moodValue)
+                VALUES
+                (today, mood),
+                ''')
+  conn.commit()
