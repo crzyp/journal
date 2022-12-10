@@ -11,7 +11,7 @@ class Journal(models.Model):
 # has a column for an image
 # has a column for the datetime
 class Entry(models.Model):
-	title = models.ForeignKey(Journal, on_delete=models.CASCADE)
+	title = models.CharField(max_length=200)
 	entry_text = models.TextField()
-	image = models.ImageField(upload_to='./uploads/')
+	image = models.ImageField(upload_to='uploads')
 	pub_date = models.DateTimeField(auto_now_add=True)
