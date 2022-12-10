@@ -1,0 +1,62 @@
+section {
+    max-width: 40rem;
+    margin: 3rem auto;
+  }
+  
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .promptItem {
+    margin: 1rem 0;
+    background-color: #350490;
+    padding: 2rem;
+    color: white;
+    border-radius: 4px;
+  }
+  
+  .promptDescription {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .promptImage {
+    margin-right: 2rem;
+  }
+  
+  .promptImage img {
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .promptDetails h3 {
+    color: inherit;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+  }
+  
+  .promptDetails address {
+    font-style: italic;
+  }
+  
+  .promptActions {
+    margin-top: 1.5rem;
+    text-align: right;
+  }
+  
+  .promptActions .btn {
+    background-color: #cb82fb;
+    border-color: #cb82fb;
+    color: #350490;
+    padding: 0.75rem 2rem;
+  }
+  
+  .promptActions .btn:hover {
+    background-color: #ba82fb;
+    border-color: #ba82fb;
+  }

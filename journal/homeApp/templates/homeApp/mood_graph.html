@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Mood Graph</title>
+  <!-- Load the Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+</head>
+<body>
+  <!-- Create a canvas element to render the graph -->
+  <canvas id="mood-graph"></canvas>
+
+  <script>
+    // retrieve the dates and values from the Django context
+    var dates = { dates,safe };
+    var values = { values,safe };
+
+    // create a new Chart.js chart
+    var ctx = document.getElementById('mood-graph').getContext('2d');
+    var chart = new Chart(ctx, {
+      type: 'line',  // create a line chart
+      data: {
+        labels: dates,  // set the x-axis labels to the dates
+        datasets: [{
+          label: 'Mood',  // set the y-axis label to "Mood"
+          data: values,  // set the y-axis data to the mood values
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',  // set the line color to a light red
+          borderColor: 'rgba(255, 99, 132, 1)',  // set the border color to a dark red
+          borderWidth: 1  // set the border width to 1 pixel
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true  // set the y-axis minimum value to 0
+            }
+          }]
+        }
+      }
+    });
+  </script>
+</body>
+</html>

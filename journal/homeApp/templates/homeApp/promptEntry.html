@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ prompt_title }}</title>
+    <link rel="stylesheet" href="{% static 'homeApp/styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'homeApp/styles/promptEntry.css' %}">
+</head>
+<body>
+    <main>
+        <header id="main-header">
+            <h2>{{ prompt_title }}</h2>
+        </header>
+        <article>
+            <section id="details">
+                <textarea name="my_textarea" rows="15" cols="100">{{ prompt_title }}</textarea>
+                <footer>
+                    <p><a href="/home/">Submit</a></p>
+                </footer>
+            </section>
+        </article>
+    </main>
+</body>
+</html>
