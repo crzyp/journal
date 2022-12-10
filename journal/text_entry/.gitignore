@@ -2,4 +2,3 @@
 *.pyc
 db.sqlite3
 media\
-C:\CMPE133\journal\journal\__pycache__*
