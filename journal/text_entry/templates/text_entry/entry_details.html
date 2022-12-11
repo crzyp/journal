@@ -1,0 +1,32 @@
+{% extends 'text_entry\base.html' %}
+
+{% load static %}
+
+{% block title %}{{ entry_title }}{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'text-entry/styles/entry-details.css' %}">{% endblock %}
+
+{% block body %}
+
+{% if entry_found %}
+
+<article>
+	<img id='main-image' src={{ entry_image.url }}>
+	<section id="title">
+		<h2>{{ entry_title }}</h2>
+		<h3>{{ entry_date }}</h3>
+	</section>
+
+	<section id="entry-text">
+		<p>{{ entry_text }}</p>
+	</section>
+</article>
+
+{% else %}
+
+<article>
+	<h2>Wrong URL!</h2>
+</article>
+
+{% endif %}
+{% endblock %}
