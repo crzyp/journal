@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Entry
+from .forms import EntryForm
 
 # Create your views here.
 def index(request):
@@ -23,3 +24,14 @@ def entry_details(request, entry_slug):
 		return render(request, 'text_entry\entry_details.html', {
 			'entry_found':False
 		})
+
+def new_entry(request):
+	if request.method == 'POST':
+		entry_form = EntryForm(request.POST, request.FILES)
+		entry = entry_form.save()
+		print('hi')
+		return redirect('entry-detail', entry.slug)
+	entry_form = EntryForm()
+	return render(request, 'text_entry/new_entry.html', {
+		'form':entry_form,
+	})
