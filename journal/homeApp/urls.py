@@ -5,5 +5,4 @@ urlpatterns = [
     path('', views.loginPage, name='login'), # ourwebsite.com/login
     path('register/', views.regPage, name='register'), # ourwebsite.com/register
     path('home/', views.home, name='homee'), # ourwebsite.com/home
-    path('home/mood-graph/', views.mood_graph), # ourwebsite.com/mood-graph/
 ]
