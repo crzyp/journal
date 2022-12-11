@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="{% static 'homeApp/styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'homeApp/styles/allPrompts.css' %}">
+</head>
+<body>
+    <header id="main-header">
+        <nav><a href="/welcome" id="main-logo">Welcome</a></nav>
+        <h2>Quote of the Day:</h2>
+        <h3>"If you don't like the road you're walking, start paving another one."</h3>
+        <h1>-Dolly Parton</h1>
+    </header>
+    <main>
+        <section>
+            <h2>How has your day been today?</h2>
+            <form action="/welcome/" method="POST">
+                {% csrf_token %}
+                <input type="range" min="1" max="100" value="50" style="height: 50px; width: 600px;" name="my_slider">
+                <h3>not too good----------------------okay----------------------------------great</h3>
+                <style>
+                    input[type="submit"] {
+                        background-color: #cb82fb;
+                        border-color: #cb82fb;
+                        color: #350490;
+                        padding: 0.75rem 2rem;
+                    }
+                </style>
+                <input type="submit" value="Submit">
+              </form>         
+        </section>
+    </main>
+</body>
+</html>
