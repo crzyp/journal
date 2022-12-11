@@ -1,4 +1,10 @@
 from django.contrib import admin
+
 from .models import Prompt
 # Register your models here.
-admin.site.register(Prompt)
+
+class PromptAdmin(admin.ModelAdmin):
+	list_display= ('title',)
+	prepopulated_fields = {'slug': ('title',)}
+
+admin.site.register(Prompt, PromptAdmin)

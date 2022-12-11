@@ -11,7 +11,7 @@
         }
 
         .signup-form {
-            max-width: 400px;
+            max-width: 700px;
             margin: 50px auto;
             padding: 30px;
             background-color: white;
@@ -63,10 +63,8 @@
         <h1>Sign Up for Daily Reflections</h1>
         <form method="POST">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Sign Up">
+            {{ register_form }}  
+            <button class="btn btn-primary" type="submit">Register</button>
         </form>
         <p>
             Already have an account? <a href="{% url 'login' %}">Log in here</a>.

@@ -1,77 +1,62 @@
+{% extends 'homeApp/base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="{% static 'homeApp/styles/base.css' %}">
-    <link rel="stylesheet" href="{% static 'homeApp/styles/allPrompts.css' %}">
-</head>
-<body>
-    <nav id="navbar">
-        <a href="/welcome/">Previous Entries</a>
-        <br>
-        <a href="mood-graph/">Mood Tracker</a>
-        <br>
-        <a href="home.html">Settings</a>
-      </nav>
-      
-    <header id="main-header">
-        <nav><a href="/welcome" id="main-logo">Welcome</a></nav>
-    </header>
-    <main>
-        <section>
-            <ol>
-                    <li class="promptItem">
-                        <article>
-                            <div class="promptDescription">
-                                <div class="promptDetails"> 
-                                    <h3>Current Entry Streak: 1!</h3>
-                                    <h3>Keep up the great work!!!!</h3>
-                                </div>
-                            </div>
-                        </article>
-                    </li>
-            </ol>
-        </section>
-        <section>
-            <ol>
-                    <li class="promptItem">
-                        <article>
-                            <div class="promptDescription">
-                                <div class="promptDetails"> 
-                                    <h3>Would you like to upload your photo of the day?</h3>
-                                </div>
-                            </div>
-                            <div class="promptActions">
-                                <a href="/home/daily-photo-entry" class="btn">New Entry</a>
-                            </div>
-                        </article>
-                    </li>
-            </ol>
-        </section>
-        <section>
-            <h2>Alternative Prompts:</h2>
-            <ol>
-                {% for prompt_item in prompts %}
-                    <li class="promptItem">
-                        <article>
-                            <div class="promptDescription">
-                                
-                                <div class="promptDetails"> 
-                                    <h3>{{ prompt_item.title }}</h3>
-                                </div>
-                            </div>
-                            <div class="promptActions">
-                                <a href="/home/{{ prompt_item.slug }}" class="btn">New Entry</a>
-                            </div>
-                        </article>
-                    </li>
-                {% endfor %}
-            </ol>
-        </section>
-    </main>
-</body>
-</html>
+
+{% block title %}Home Page{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'homeApp/styles/allPrompts.css' %}">{% endblock %}
+
+{% block body %}
+
+<a href="/welcome" id="main-logo">Welcome</a>
+<section>
+    <ol>
+            <li class="promptItem">
+                <article>
+                    <div class="promptDescription">
+                        <div class="promptDetails"> 
+                            <h3>Current Entry Streak: 3!</h3>
+                            <h3>Keep up the great work!!!!</h3>
+                        </div>
+                    </div>
+                </article>
+            </li>
+    </ol>
+</section>
+<section>
+    <ol>
+        <li class="promptItem">
+            <article>
+                <div class="promptDescription">
+                    <div class="promptDetails"> 
+                        <h3>Would you like to upload your photo of the day?</h3>
+                    </div>
+                </div>
+                <div class="promptActions">
+                    <a href="/entry/new_entry" class="btn">New Entry</a>
+                </div>
+            </article>
+        </li>
+    </ol>
+</section>
+<section>
+    <h2>Alternative Prompts:</h2>
+    <ol>
+        {% for prompt_item in prompts %}
+            <li class="promptItem">
+                <article>
+                    <div class="promptDescription">
+                        
+                        <div class="promptDetails"> 
+                            <h3>{{ prompt_item.title }}</h3>
+                        </div>
+                    </div>
+                    <div class="promptActions">
+                        <a href="/home/{{ prompt_item.slug }}" class="btn">New Entry</a>
+                    </div>
+                </article>
+            </li>
+        {% endfor %}
+    </ol>
+</section>
+{% endblock %}

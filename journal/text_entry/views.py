@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 from .models import Entry
 from .forms import EntryForm
 
 # Create your views here.
 def index(request):
-	entries = Entry.objects.all()
+	entries = Entry.objects.all().order_by('-pub_date')
 	return render(request, 'text_entry\index.html', {
 		'entries':entries
 	})
@@ -28,9 +29,10 @@ def entry_details(request, entry_slug):
 def new_entry(request):
 	if request.method == 'POST':
 		entry_form = EntryForm(request.POST, request.FILES)
-		entry = entry_form.save()
-		print('hi')
-		return redirect('entry-detail', entry.slug)
+		if entry_form.is_valid():
+			entry = entry_form.save()
+			return redirect('entry-detail', entry.slug)
+		messages.error(request, 'Something went wrong, make sure you put a title and uploaded an image!')
 	entry_form = EntryForm()
 	return render(request, 'text_entry/new_entry.html', {
 		'form':entry_form,
