@@ -1,0 +1,20 @@
+{% extends 'text_entry\base.html' %}
+
+{% load static %}
+
+{% block title %}Text Entry{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'text-entry/styles/form.css' %}">{% endblock %}
+
+{% block body %}
+<form action="{% url 'new-entry' %}" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	<h3>Today's Entry</h3>
+	<ul>
+		{{ form.as_ul }}
+	</ul>
+	<div>
+		<button id="entry-actions">Submit</button>
+	</div>
+</form>
+{% endblock %}
